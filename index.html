@@ -1,0 +1,66 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title></title>
+	</head>
+	<style type="text/css" media="screen">
+	body{
+		margin: 0 auto;
+
+	}
+	.player{
+		background-color: #75a3a3;
+
+	}
+	.logo{border: 5px solid #bfbfbf;}
+	.pular{
+		background-image: url(img/but.png);
+		background-size: contain;
+		height: 30vh;
+		width: 30vh;
+	}
+</style>
+<body>
+	<center>
+		<div class="player">
+			<audio class="audio" src="" autoplay></audio>
+			<h1 class="nome">asasasas</h1>
+			<img class="logo" src="img/corno.jpg" alt="">
+			<div class="pular" onclick="avancar()"></div>
+		</div>
+	</center>
+	<script type="text/javascript" src="js/jq.js"></script>
+	<script type="text/javascript">
+		//var lista= ["Guilherme e Santiago Jogado Na Rua.mp3","Naiara Azevedo Part Maiara e Maraisa 50 Reais.mp3","Alo_porteiro.mp3","Henrique e Juliano Flor E O Beija Flor part Marilia Mendoca.mp3","Maiara e Maraisa Medo Bobo.mp3","Marilia Mendonca Infiel.mp3","Simone e Simaria Meu Violao E O Nosso Cachorro.mp3","Maiara e Maraisa 10 Por Cento.mp3","Jorge e Mateus Louca de Saudade .mp3","Henrique E Juliano Na Hora Da Raiva .mp3","Luan Santana Eu Nao Merecia Isso.mp3"];
+		var i=1;
+		var lista=[];
+		$.getJSON( "https://alotofnothing.000webhostapp.com/pl/musica/leitura.php", function( data ) {
+
+			$.each( data, function( val,name ) {
+				lista.push(name);
+			});
+
+		});
+		console.log(lista[1]);
+		$( ".audio" ).attr( "src","https://alotofnothing.000webhostapp.com/pl/musica/Sertanojo/"+lista[i]);
+		$(".audio")[0].load();
+		$(".nome").text(lista[i])
+		function avancar() {
+			i++;
+			if (i>lista.length) {i=0}
+				$( ".audio" ).attr( "src","https://alotofnothing.000webhostapp.com/pl/musica/Sertanojo/"+lista[i]);
+			$(".audio")[0].load();
+			$(".nome").text(lista[i]);
+		}
+		setInterval(()=>{
+
+			if($(".audio")[0].currentTime>= $(".audio")[0].duration){ 
+				avancar();
+
+
+			}}
+			, 500);
+
+		</script>
+	</body>
+	</html>
