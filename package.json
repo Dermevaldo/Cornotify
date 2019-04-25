@@ -1,0 +1,26 @@
+{
+	"name": "cornotify",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "nuxt generate",
+		"dev": "nuxt"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Daeronic/Cornotify.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Daeronic/Cornotify/issues"
+	},
+	"homepage": "https://github.com/Daeronic/Cornotify#readme",
+	"devDependencies": {
+		"@nuxtjs/pwa": "^3.0.0-beta.14",
+		"axios": "^0.18.0",
+		"nuxt": "^2.6.3"
+	}
+}
